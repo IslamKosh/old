@@ -19,12 +19,12 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new JMS\TranslationBundle\JMSTranslationBundle(),
 
             new AppBundle\AppBundle(),
+            new UserBundle\UserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
