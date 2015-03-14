@@ -1,0 +1,25 @@
+{% set selected = "class=aui-nav-selected" %}
+
+<nav class="aui-navgroup aui-navgroup-vertical">
+    <div class="aui-navgroup-inner">
+        <ul class="aui-nav __skate" resolved="">
+            <li {% if current == 'new' %}{{ selected }}{% endif %}>
+                <a href="http://example.com/">Create New</a>
+            </li>
+            <li><a href="http://example.com/">Statistics</a>
+            </li>
+        </ul>
+        <div class="aui-nav-heading"><strong>Job List</strong>
+        </div>
+        <ul class="aui-nav __skate" resolved="">
+            <li {% if current == 'all' %}{{ selected }}{% endif %}><a href="http://example.com/">All</a>
+            </li>
+            <li {% if current == 'awaiting' %}{{ selected }}{% endif %}><a href="http://example.com/">Awaiting Approval</a>
+            </li>
+            <li><a href="http://example.com/">Submitted</a>
+            </li>
+            <li><a href="http://example.com/">Overdue</a>
+            </li>
+        </ul>
+    </div>
+</nav>

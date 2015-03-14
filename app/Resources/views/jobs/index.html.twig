@@ -1,0 +1,77 @@
+{% extends 'page-sidebar.html.twig' %}
+
+{% block title 'Jobs | ' ~ parent() %}
+{% block pageHeader "<h1>Jobs</h1>" %}
+
+{% block topNavigation %}
+    {% include 'top-nav-common.html.twig' %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'jobs/sidebar.html.twig' with {'current': 'all'} %}
+{% endblock %}
+
+{% block pageContent %}
+    <h2>List of Jobs</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae diam in arcu ultricies gravida sed sed nisl. Curabitur nibh nulla, semper non pharetra eu, suscipit vitae eros.</p>
+
+    <table class="aui">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Assignee</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>
+                    Chapter 6 to 13 of Tafseer Ibn Katheer
+                </th>
+                <td>Scan</td>
+                <td><a href="#">Abdul Karim</a></td>
+                <td>Due in 5 days (13<sup>th</sup> June)</td>
+            </tr>
+            <tr>
+                <th>
+                    Chapter 6 to 13 of Tafseer Ibn Katheer
+                </th>
+                <td>Scan</td>
+                <td><a href="#">Abdul Karim</a></td>
+                <td>Due in 5 days (13<sup>th</sup> June)</td>
+            </tr>
+            <tr>
+                <th>
+                    Chapter 6 to 13 of Tafseer Ibn Katheer
+                </th>
+                <td>Scan</td>
+                <td><a href="#">Abdul Karim</a></td>
+                <td>Due in 5 days (13<sup>th</sup> June)</td>
+            </tr>
+            <tr>
+                <th>
+                    Chapter 6 to 13 of Tafseer Ibn Katheer
+                </th>
+                <td>Scan</td>
+                <td><a href="#">Abdul Karim</a></td>
+                <td>Due in 5 days (13<sup>th</sup> June)</td>
+            </tr>
+            <tr>
+                <th>
+                    Chapter 6 to 13 of Tafseer Ibn Katheer
+                </th>
+                <td>Scan</td>
+                <td><a href="#">Abdul Karim</a></td>
+                <td>Due in 5 days (13<sup>th</sup> June)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="aui-message aui-message-hint">
+        <p class="title">
+            <strong>No Jobs so far!</strong>
+        </p>
+        <p>It's your chance to <a href="#">create the first job.</a></p>
+    </div>
+{% endblock %}

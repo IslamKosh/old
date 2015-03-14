@@ -1,6 +1,4 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}IslamKosh{% endblock %}
+{% extends 'layout.html.twig' %}
 
 {% block header %}
 <header id="header" role="banner">
@@ -10,9 +8,11 @@
                 <h1 id="logo" class="aui-header-logo aui-header-logo-textonly">
                     <a href="/"><span class="aui-header-logo-device">IslamKosh</span></a>
                 </h1>
+                {% block topNavigation %}
                 <ul class="aui-nav">
                     <li><a href="/">Nav</a></li>
                 </ul>
+                {% endblock %}
             </div>
         </div>
     </nav>
@@ -25,44 +25,52 @@
     <header class="aui-page-header">
         <div class="aui-page-header-inner">
             <div class="aui-page-header-main">
+                {% block pageHeader %}
                 <h1>Default Page Layout</h1>
+                {% endblock %}
             </div>
         </div>
     </header>
 
-    <nav class="aui-navgroup aui-navgroup-horizontal">
-        <div class="aui-navgroup-inner">
-            <div class="aui-navgroup-primary">
-                <ul class="aui-nav">
-                    <li class="aui-nav-selected">
-                        <a href="#" id="browse_project"><span>Overview</span></a>
-                    </li>
-                    <li>
-                        <a href="#" id="project-admin-link"><span>Administration</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% block subNavigation %}
+    {#<nav class="aui-navgroup aui-navgroup-horizontal">#}
+        {#<div class="aui-navgroup-inner">#}
+            {#<div class="aui-navgroup-primary">#}
+                {#<ul class="aui-nav">#}
+                    {#<li class="aui-nav-selected">#}
+                        {#<a href="#" id="browse_project"><span>Overview</span></a>#}
+                    {#</li>#}
+                    {#<li>#}
+                        {#<a href="#" id="project-admin-link"><span>Administration</span></a>#}
+                    {#</li>#}
+                {#</ul>#}
+            {#</div>#}
+        {#</div>#}
+    {#</nav>#}
+    {% endblock %}
 
     <div class="aui-page-panel">
 
         <div class="aui-page-panel-inner">
 
             <div class="aui-page-panel-nav">
+                {% block sidebar %}
                 <ul class="vertical tabs">
                     <li class="active first">
-                        <a class="browse-tab" id="com.atlassian.jira.jira-projects-plugin:summary-panel-panel" href="/browse/IK?selectedTab=com.atlassian.jira.jira-projects-plugin:summary-panel" hidefocus=""><strong>Summary</strong></a>
+                        <a class="browse-tab" id="summary-panel-panel" href="#" hidefocus=""><strong>Summary</strong></a>
                     </li>
                     <li>
-                        <a class="browse-tab" id="com.atlassian.jira.jira-projects-plugin:issues-panel-panel" href="/browse/IK?selectedTab=com.atlassian.jira.jira-projects-plugin:issues-panel" hidefocus=""><strong>Issues</strong></a>
+                        <a class="browse-tab" id="issues-panel-panel" href="#" hidefocus=""><strong>Issues</strong></a>
                     </li>
                 </ul>
+                {% endblock %}
             </div>
 
             <section class="aui-page-panel-content">
+                {% block pageContent %}
                 <h2>Page content heading</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae diam in arcu ultricies gravida sed sed nisl. Curabitur nibh nulla, semper non pharetra eu, suscipit vitae eros. Donec eget lectus elit. Etiam metus diam, adipiscing convallis blandit sit amet, sollicitudin sit amet felis. Phasellus justo elit, rhoncus sed tincidunt a, auctor sit amet turpis. Praesent turpis lectus, aliquet vitae sollicitudin ac, convallis vitae urna. Donec consectetur lacus a lacus tincidunt at varius felis venenatis. Pellentesque dapibus mattis arcu, a vestibulum lacus congue at.</p>
+                {% endblock %}
             </section>
 
         </div>
