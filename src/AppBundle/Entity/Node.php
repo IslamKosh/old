@@ -2,14 +2,15 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use AppBundle\Traits\BlameableEntity;
 use AppBundle\Traits\TimestampableEntity;
 use AppBundle\Traits\SoftDeletableEntity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+
 /**
- * Post
+ * Node
  *
  * @ORM\Table(name="nodes")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\NodeRepository")

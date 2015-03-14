@@ -51,7 +51,7 @@ class Book
     protected $meta;
 
     /**
-     * @var string
+     * @var boolean
      *
      * @ORM\Column(name="published", type="boolean")
      */
@@ -98,7 +98,7 @@ class Book
     }
 
     /**
-     * Set body
+     * Set description
      *
      * @param string $description
      *
@@ -111,7 +111,7 @@ class Book
     }
 
     /**
-     * Get body
+     * Get description
      *
      * @return string
      */
@@ -144,9 +144,9 @@ class Book
     }
 
     /**
-     * Get status
+     * Get published status
      *
-     * @return string
+     * @return boolean
      */
     public function getPublished()
     {
@@ -154,9 +154,9 @@ class Book
     }
 
     /**
-     * Set status
+     * Set published status
      *
-     * @param string $published
+     * @param boolean $published
      *
      * @return Node
      */

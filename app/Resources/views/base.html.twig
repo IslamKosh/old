@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% stylesheets
+        'aui/css/aui.min.css'
+        'aui/css/aui-experimental.min.css'
+        'css/app.css'
+        filter='cssrewrite' output='css/compiled/all.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body class="{{ bodyClass|default('aui-layout aui-theme-default') }}">
+
+    {% block body %}
+    <div id="page">
+
+        {% block header %}
+        <header id="header" role="banner">
+        </header>
+        {% endblock %}
+
+        {% block content %}
+        <section id="content" role="main">
+        </section>
+        {% endblock %}
+
+        {% block footer %}
+        <footer id="footer" class="refapp-footer">
+        </footer>
+        {% endblock %}
+
+    </div>
+    {% endblock %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+
+    {% javascripts
+        'aui/js/aui.min.js'
+        'aui/js/aui-experimental.min.js'
+        'aui/js/aui-soy.min.js'
+        output='js/compiled/all.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+</body>
 </html>
