@@ -1,3 +1,7 @@
+{% macro form_start(form, style) %}
+    {{ form_start(form, {'attr': {'class': 'aui ' ~ style|default('')}}) }}
+{% endmacro %}
+
 {% macro form_buttons(buttons) %}
     <div class="buttons-container">
         <div class="buttons">
@@ -8,6 +12,13 @@
     </div>
 {% endmacro %}
 
-{% macro form_start(form, style) %}
-    {{ form_start(form, {'attr': {'class': 'aui ' ~ style|default('')}}) }}
+{% macro message(message, type, title) %}
+    <div class="aui-message aui-message-{{ type|default('generic') }}">
+        {% if title is not empty %}
+        <p class="title">
+            <strong>{{ title }}</strong>
+        </p>
+        {% endif %}
+        <p>{{ message|raw }}</p>
+    </div>
 {% endmacro %}

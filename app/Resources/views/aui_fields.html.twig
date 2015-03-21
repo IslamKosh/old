@@ -1,5 +1,7 @@
 {% extends 'form_div_layout.html.twig' %}
 
+{# Rows #}
+
 {% block form_row -%}
     <div class="field-group">
         {{ form_label(form) }}
@@ -8,19 +10,81 @@
     </div>
 {%- endblock form_row %}
 
+{% block choice_row -%}
+    <fieldset class="group">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </fieldset>
+{%- endblock choice_row %}
+
+{# Widgets #}
+
 {% block form_widget_simple -%}
     {% if type is not defined or 'file' != type %}
         {% set attr = attr|merge({class: (attr.class|default('') ~ ' text')|trim}) %}
+        {{- parent() -}}
+    {% else %}
+        <label class="ffi" data-ffi-button-text="Browse">
+            {{- parent() -}}
+        </label>
     {% endif %}
-    {{- parent() -}}
 {%- endblock form_widget_simple %}
+
+{% block button_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' aui-button')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block textarea_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' textarea')|trim}) %}
+    {{- parent() -}}
+{%- endblock textarea_widget %}
+
+{%- block checkbox_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' checkbox')|trim}) %}
+    <input type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+{%- endblock checkbox_widget -%}
+
+{%- block radio_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' radio')|trim}) %}
+    <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+{%- endblock radio_widget -%}
 
 {% block choice_widget_collapsed -%}
     {% set attr = attr|merge({class: (attr.class|default('') ~ ' select')|trim}) %}
     {{- parent() -}}
 {%- endblock %}
 
-{% block button_widget -%}
-    {% set attr = attr|merge({class: (attr.class|default('') ~ ' aui-button')|trim}) %}
-    {{- parent() -}}
-{%- endblock %}
+{%- block choice_widget_expanded -%}
+    {%- for child in form %}
+        <div class="{% if multiple %}checkbox{% else %}radio{% endif %}">
+            {{- form_widget(child) -}}
+            {{- form_label(child) -}}
+        </div>
+    {% endfor -%}
+{%- endblock choice_widget_expanded -%}
+
+{# Labels #}
+
+{% block choice_label %}
+    {% if label is not sameas(false) -%}
+        {% if not compound -%}
+    {% set label_attr = label_attr|merge({'for': id}) %}
+{%- endif %}
+        {% if required -%}
+    {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+{%- endif %}
+        {% if label is empty -%}
+    {%- if label_format is not empty -%}
+        {% set label = label_format|replace({
+        '%name%': name,
+        '%id%': id,
+        }) %}
+    {%- else -%}
+        {% set label = name|humanize %}
+    {%- endif -%}
+{%- endif -%}
+        <legend{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}><span>{{ label|trans({}, translation_domain) }}</span></legend>
+    {%- endif -%}
+{%- endblock choice_label -%}

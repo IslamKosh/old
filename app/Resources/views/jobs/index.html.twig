@@ -11,6 +11,9 @@
 {% endblock %}
 
 {% block pageContent %}
+
+    {{ AUI.message('It\'s your chance to <a href="#">create the first job.</a>', 'hint', 'There is no job!') }}
+
     <h2>List of Jobs</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae diam in arcu ultricies gravida sed sed nisl. Curabitur nibh nulla, semper non pharetra eu, suscipit vitae eros.</p>
 
@@ -66,12 +69,5 @@
             </tr>
         </tbody>
     </table>
-
-    <div class="aui-message aui-message-hint">
-        <p class="title">
-            <strong>No Jobs so far!</strong>
-        </p>
-        <p>It's your chance to <a href="#">create the first job.</a></p>
-    </div>
 
 {% endblock %}
