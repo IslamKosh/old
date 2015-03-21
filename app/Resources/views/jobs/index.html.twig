@@ -1,14 +1,13 @@
-{% extends 'page-sidebar.html.twig' %}
+{% extends '::layout.html.twig' %}
 
-{% block title 'Jobs | ' ~ parent() %}
-{% block pageHeader "<h1>Jobs</h1>" %}
-
-{% block topNavigation %}
-    {% include 'top-nav-common.html.twig' %}
-{% endblock %}
+{% block pageTitle 'Jobs' %}
 
 {% block sidebar %}
-    {% include 'jobs/sidebar.html.twig' with {'current': 'all'} %}
+    {% include 'jobs/sidebar.html.twig' %}
+{% endblock %}
+
+{% block pageActions %}
+    <a href="javascript:void(0);" class="aui-button">Create New Job</a>
 {% endblock %}
 
 {% block pageContent %}
@@ -74,4 +73,5 @@
         </p>
         <p>It's your chance to <a href="#">create the first job.</a></p>
     </div>
+
 {% endblock %}

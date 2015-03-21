@@ -1,0 +1,13 @@
+{% macro form_buttons(buttons) %}
+    <div class="buttons-container">
+        <div class="buttons">
+            {% for button in buttons %}
+                {{ form_widget(button) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro form_start(form, style) %}
+    {{ form_start(form, {'attr': {'class': 'aui ' ~ style|default('')}}) }}
+{% endmacro %}

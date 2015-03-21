@@ -1,0 +1,26 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_row -%}
+    <div class="field-group">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{%- endblock form_row %}
+
+{% block form_widget_simple -%}
+    {% if type is not defined or 'file' != type %}
+        {% set attr = attr|merge({class: (attr.class|default('') ~ ' text')|trim}) %}
+    {% endif %}
+    {{- parent() -}}
+{%- endblock form_widget_simple %}
+
+{% block choice_widget_collapsed -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' select')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}
+
+{% block button_widget -%}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' aui-button')|trim}) %}
+    {{- parent() -}}
+{%- endblock %}

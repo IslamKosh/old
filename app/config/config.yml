@@ -36,6 +36,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - aui_fields.html.twig
 
 # Assetic Configuration
 assetic:
@@ -93,3 +95,9 @@ jms_i18n_routing:
     default_locale: en
     locales: [bn, en]
     strategy: prefix_except_default
+
+knp_menu:
+    twig:
+        template: knp_menu.html.twig
+    templating: false
+    default_renderer: twig

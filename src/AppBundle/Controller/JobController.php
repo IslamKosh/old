@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class JobController extends Controller
 {
     /**
-     * @Route("/jobs", name="homepage")
+     * @Route("/jobs", name="jobs")
      */
     public function indexAction()
     {

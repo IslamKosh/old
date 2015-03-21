@@ -13,7 +13,15 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        $form = $this->createFormBuilder()
+            ->add('task', 'text')
+            ->add('dueDate', 'date', array('widget' => 'single_text'))
+            ->add('save', 'submit', array('label' => 'Create Task'))
+            ->getForm();
+
+        return $this->render('default/index.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**

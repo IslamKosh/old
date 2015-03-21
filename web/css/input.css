@@ -1,0 +1,7 @@
+.aui-button, .aui-button:visited, a.aui-button {
+    background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+}
+
+a.aui-button:active, a.aui-button:focus, a.aui-button:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #f2f2f2 100%);
+}

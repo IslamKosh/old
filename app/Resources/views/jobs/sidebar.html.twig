@@ -1,25 +1,14 @@
-{% set selected = "class=aui-nav-selected" %}
-
-<nav class="aui-navgroup aui-navgroup-vertical">
-    <div class="aui-navgroup-inner">
-        <ul class="aui-nav __skate" resolved="">
-            <li {% if current == 'new' %}{{ selected }}{% endif %}>
-                <a href="http://example.com/">Create New</a>
-            </li>
-            <li><a href="http://example.com/">Statistics</a>
-            </li>
-        </ul>
-        <div class="aui-nav-heading"><strong>Job List</strong>
+<div class="aui-page-panel-nav">
+    <nav class="aui-navgroup aui-navgroup-vertical">
+        <div class="aui-navgroup-inner">
+            <ul class="aui-nav">
+                <li class="aui-nav-selected"><a href="#">All Jobs</a></li>
+            </ul>
+            <div class="aui-nav-heading"><strong>Filters</strong></div>
+            <ul class="aui-nav">
+                <li><a href="#">Active Jobs</a></li>
+                <li><a href="#">Pending Jobs</a></li>
+            </ul>
         </div>
-        <ul class="aui-nav __skate" resolved="">
-            <li {% if current == 'all' %}{{ selected }}{% endif %}><a href="http://example.com/">All</a>
-            </li>
-            <li {% if current == 'awaiting' %}{{ selected }}{% endif %}><a href="http://example.com/">Awaiting Approval</a>
-            </li>
-            <li><a href="http://example.com/">Submitted</a>
-            </li>
-            <li><a href="http://example.com/">Overdue</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    </nav>
+</div>

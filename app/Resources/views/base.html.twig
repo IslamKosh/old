@@ -1,10 +1,12 @@
+{% import "aui_macros.html.twig" as AUI %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block pageTitle 'Default Page' %} | {% block projectTitle 'IslamKosh' %}</title>
     {% stylesheets
         'aui/css/aui.min.css'
         'aui/css/aui-experimental.min.css'
@@ -15,13 +17,27 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 
-<body class="{{ bodyClass|default('aui-layout aui-theme-default') }}">
+<body class="aui-layout {{ bodyClass|default('aui-theme-default') }}">
 
     {% block body %}
     <div id="page">
 
         {% block header %}
         <header id="header" role="banner">
+            <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+                <div class="aui-header-inner">
+                    <div class="aui-header-primary">
+                        <h1 id="logo" class="aui-header-logo aui-header-logo-textonly">
+                            <a href="/"><span class="aui-header-logo-device">{{ appName|default('IslamKosh') }}</span></a>
+                        </h1>
+                        {% block topNavigation %}
+                        <ul class="aui-nav">
+                            <li><a href="/">Home</a></li>
+                        </ul>
+                        {% endblock %}
+                    </div>
+                </div>
+            </nav>
         </header>
         {% endblock %}
 
@@ -31,7 +47,7 @@
         {% endblock %}
 
         {% block footer %}
-        <footer id="footer" class="refapp-footer">
+        <footer id="footer">
         </footer>
         {% endblock %}
 
