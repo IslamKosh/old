@@ -16,4 +16,13 @@ class JobController extends Controller
         return $this->render('jobs/index.html.twig');
     }
 
+
+    /**
+     * @Route("/jobs/create", name="job_create")
+     */
+    public function createAction()
+    {
+        return $this->render('jobs/create.html.twig');
+    }
+
 }

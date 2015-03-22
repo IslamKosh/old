@@ -1,0 +1,154 @@
+{% extends '::layout.html.twig' %}
+
+{% block pageTitle 'Job Create' %}
+
+    {% block sidebar %}
+        {% include 'jobs/sidebar.html.twig' %}
+    {% endblock %}
+
+    {% block pageActions %}
+        <a href="javascript:void(0);" class="aui-button">Create New Job</a>
+    {% endblock %}
+
+    {% block pageContent %}
+
+        <h2>Create Job</h2>
+        <form class="aui">
+
+            <div class="field-group">
+                <label for="d-lname">Job Name</label>
+                <input class="text long-field" type="text" id="d-lname" name="d-lname" title="last name">
+            </div>
+
+            <div class="field-group">
+                <label for="d-lname">Owner</label>
+                <select class="select long-field" id="dBase" name="dBase" title="database select">
+                    <option>List of Managers</option>
+                    <option>Reza Ul Kabir</option>
+                    <option>Banda Reza</option>
+                </select>
+            </div>
+
+            <div class="field-group">
+                <label for="d-lname">Type</label>
+
+                <div class="radio">
+                    <input class="radio" type="radio" checked="checked" name="rads" id="irOne">
+                    <label for="irOne">Scan</label>
+                </div>
+                <div class="radio">
+                    <input class="radio" type="radio" checked="checked" name="rads" id="irOne">
+                    <label for="irOne">Type</label>
+                </div>
+                <div class="radio">
+                    <input class="radio" type="radio" checked="checked" name="rads" id="irOne">
+                    <label for="irOne">Moderate</label>
+                </div>
+                <div class="radio">
+                    <input class="radio" type="radio" checked="checked" name="rads" id="irOne">
+                    <label for="irOne">Assemble</label>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="d-lname">Association</label>
+
+                <div class="checkbox">
+                    <input class="checkbox" type="checkbox" name="cbOne" id="cbOne">
+                    <label for="cbOne">Individual Article</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox" type="checkbox" name="cbOne" id="cbOne">
+                    <label for="cbOne">Series</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox" type="checkbox" name="cbOne" id="cbOne">
+                    <label for="cbOne">Book</label>
+                </div>
+                <div class="checkbox">
+                    <input class="checkbox" type="checkbox" name="cbOne" id="cbOne">
+                    <label for="cbOne">Something Else</label>
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label for="d-lname">Book</label>
+                <input class="text long-field" type="text" id="d-lname" name="d-lname" title="last name">
+            </div>
+
+            <div class="field-group">
+                <label for="d-lname">General Description</label>
+                <textarea class="textarea long-field" rows="6" cols="10" name="licenseKey" id="licenseKey"></textarea>
+            </div>
+            <div class="field-group">
+                <label for="d-lname">Technical Instruction</label>
+                <textarea class="textarea long-field" rows="6" cols="10" name="licenseKey" id="licenseKey"></textarea>
+            </div>
+
+            <div class="field-group">
+                <label for="d-lname">Related Resources</label>
+
+                <div class="aui-tabs horizontal-tabs long-field" role="application">
+
+                    <ul class="tabs-menu" role="tablist">
+                        <li class="menu-item active-tab" role="role-email">
+                            <a href="#tabs-first" role="tab" aria-selected="true"><strong>Email</strong></a>
+                        </li>
+
+                        <li class="menu-item" role="presentation">
+                            <a href="#tabs-1" role="tab" aria-selected="true"><strong>Links/Text</strong></a>
+                        </li>
+                        <li class="menu-item" role="presentation">
+                            <a href="#tabs-2" role="tab" ><strong>Upload</strong></a>
+                        </li>
+                        <li class="menu-item" role="presentation">
+                            <a href="#tabs-3" role="tab" ><strong>Scanned</strong></a>
+                        </li>
+                        <li class="menu-item" role="presentation">
+                            <a href="#tabs-4" role="tab" ><strong>Types</strong></a>
+                        </li>
+                        <li class="menu-item" role="presentation">
+                            <a href="#tabs-6" role="tab" ><strong>Moderate</strong></a>
+                        </li>
+                    </ul>
+
+                    <div class="tabs-pane active-pane" id="tabs-1" role="tabpanel" aria-hidden="false">
+
+                        <div style="margin: 20px">
+                            <p>Email Address of Job Creator/Owner:</p>
+                            <p>Use only in case of:
+                                <ul>
+                                    <li>Confidential/sensitive resources</li>
+                                    <li>Required personal verification/communication</li>
+                                    <li>Example of reasonable cause</li>
+                                </ul>
+                            </p>
+
+                            <input type="text" class="text full-width-field"/>
+                        </div>
+
+
+                    </div>
+                    <div class="tabs-pane" id="tabs-2" role="tabpanel" aria-hidden="true">
+                        <h2>This is Tab 2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="tabs-pane " id="tabs-3" role="tabpanel" aria-hidden="true">
+                        <h2>This is Tab 3</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="tabs-pane " id="tabs-4" role="tabpanel" aria-hidden="true">
+                        <h2>This is Tab 4</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="tabs-pane" id="tabs-5" role="tabpanel" aria-hidden="true">
+                        <h2>This is Tab 5</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+
+    {% endblock %}
